@@ -5,7 +5,12 @@ const EventList = (props) => {
       <ul>
          {props.items.map(item=>
             <EventItem
-               name={item}
+               key={item.id}
+               id={item.id}
+               title={item.title}
+               location={item.location}
+               date={item.date}
+               image={item.image}
             />   
          )}
       </ul>
