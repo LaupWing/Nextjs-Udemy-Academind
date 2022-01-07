@@ -1,4 +1,5 @@
 import Link from "next/link"
+import classes from './event-item.module.css'
 
 const EventItem = ({title, image, date, location, id}) => {
 
@@ -11,19 +12,19 @@ const EventItem = ({title, image, date, location, id}) => {
    const explor_link = `/events/${id}`
 
    return (
-      <li>
+      <li className={classes.item}>
          <img src={image} alt={title} />
-         <div>
-            <div>
+         <div className={classes.content}>
+            <div className={classes.summary}>
                <h2>{title}</h2>
-               <div>
+               <div className={classes.date}>
                   <time>{transform_date}</time>
                </div>
-               <div>
+               <div className={classes.address}>
                   <address>{formatted_address}</address>
                </div>
             </div>
-            <div>
+            <div className={classes.action}>
                <Link href={explor_link}>Explore Event</Link>
             </div>
          </div>
