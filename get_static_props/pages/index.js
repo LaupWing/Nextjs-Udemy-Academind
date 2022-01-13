@@ -13,15 +13,16 @@ export default function Home() {
    )
 }
 
-export async function getStaticProps(){
+export async function getStaticProps(ctx){
    const filePath = path.join(process.cwd(), 'data', 'dummy-backend.json') 
    const jsonData = await fs.readFile(filePath)
    const data = JSON.parse(jsonData)
-   console.log(data)
+   console.log(ctx)
 
    return {
       props: {
-         products: [{id: 'p1', title: 'Product 1'}]
-      }
+         products: data
+      },
+      revalidate: 10
    }
 }
